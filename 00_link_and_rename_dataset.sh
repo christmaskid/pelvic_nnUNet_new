@@ -8,6 +8,7 @@ source_dirs=(
 )
 
 remove_list=(
+    # NO IPA
     CVAI_Train_01
     CVAI_Train_09
     CVAI_Train_19
@@ -19,11 +20,23 @@ remove_list=(
     CVAI_Train_42
     CVAI_Train_50
     CVAI_Train_99
+    # BROKEN labels
     CVAI_Train_0102
     CVAI_Train_0106
+    # Duplicates
+    CVAI_Train_05
+    CVAI_Train_10
+    CVAI_Train_17
+    CVAI_Train_25
+    CVAI_Train_41
+    CVAI_Train_51
+    CVAI_Train_69
+    # No stenosis degree report
+    CVAI_Train_31
 )
 
 mkdir -p "$base"
+rm "$base"/*
 
 # Remove only links from the target directory; source data is never modified.
 find "$base" -maxdepth 1 -mindepth 1 -type l -delete
