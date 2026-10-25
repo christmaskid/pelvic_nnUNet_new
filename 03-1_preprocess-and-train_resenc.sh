@@ -13,7 +13,7 @@ LOGS=logs
 mkdir -p LOGS
 
 DIV_PART=5 # folds
-gpu_nos=("5" "5" "6" "6" "7")
+gpu_nos=("3" "4" "5" "6" "7") # GPU numbers for each fold
 
 cmd="nnUNetv2_plan_experiment -d ${datasets[*]} -pl nnUNetPlannerResEnc${RESENC_SIZE}"
 echo "Running: $cmd"

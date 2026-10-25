@@ -12,7 +12,7 @@ fi
 
 DIV_PART=5 # folds
 task_name="plain"
-gpu_nos=("0" "1" "1" "2" "2")
+gpu_nos=("2" "3" "4" "5" "6") # GPU numbers for each fold
 
 mkdir -p logs
 

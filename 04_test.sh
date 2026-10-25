@@ -2,13 +2,13 @@ nnUNet_raw="/data/b09401064/nnUNet_dataset/nnUNet_raw"
 nnUNet_prediction="/data/b09401064/nnUNet_dataset/nnUNet_predictions"
 mkdir -p $nnUNet_prediction
 
-DIV_PART=4
-gpu_nos=("2" "3" "5" "6")
+DIV_PART=3
+gpu_nos=("0" "1" "2")
 PLAN_NAME=${3:-"nnUNetPlans"} # nnUNetPlansResEncM, nnUNetPlansResEncL
 
 # list of datasets as "train|test"
 if [[ "$1" == "1" ]]; then
-    test_cases=("gt|gt" "gt|pred") # "global" "IPA" 
+    test_cases=("gt|pred") # "global" "IPA" "gt|gt" 
 elif [[ "$1" == "2" ]]; then
     test_cases=("pred|gt" "pred|pred" "mixed|gt" "mixed|pred")
 else
@@ -69,6 +69,7 @@ for test_case in ${test_cases[@]}; do
                 -d ${mode_to_dsnum[$TRAIN_MODE]} -c 3d_fullres -chk checkpoint_best.pth \
                 -num_parts $DIV_PART -part_id $DIV_ID > $log 2>&1 &"
             echo "Running: $cmd"
+            echo $cmd >> $log
             eval $cmd
             pids+=($!)
         done

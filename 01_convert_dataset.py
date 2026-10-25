@@ -175,7 +175,7 @@ def create_linked_dataset(
                 )
                 # input CH1: vessel label (GT or Pred)
                 if variant == "GT":
-                    vessel_source_path = raw_root / label_source / label_directory / f"{sample}.nii.gz"
+                    vessel_source_path = raw_root / "Dataset001_Pelvic" / label_directory / f"{sample}.nii.gz"
                 elif variant == "Pred":
                     vessel_source_path = prediction_root / "global" / f"{sample}.nii.gz"
                 link_if_missing(
@@ -230,39 +230,39 @@ def main() -> None:
     #     testing_samples,
     # )
 
+    create_linked_dataset(
+        raw_root=args.raw_root,
+        prediction_root=args.prediction_root,
+        dataset_name="Dataset003_PelvicIPA",
+        train_samples=train_samples,
+        testing_samples=testing_samples,
+        image_source="Dataset001_Pelvic",
+        label_source="Dataset007_IPA",
+        variants=["GT"],
+        channel_names={"0": "CT", "1": "noNorm"},
+    )
     # create_linked_dataset(
     #     raw_root=args.raw_root,
     #     prediction_root=args.prediction_root,
-    #     dataset_name="Dataset003_PelvicIPA",
+    #     dataset_name="Dataset005_PelvicIPAPredInput",
     #     train_samples=train_samples,
     #     testing_samples=testing_samples,
     #     image_source="Dataset001_Pelvic",
     #     label_source="Dataset007_IPA",
-    #     variants=["GT"],
+    #     variants=["Pred"],
     #     channel_names={"0": "CT", "1": "noNorm"},
     # )
-    create_linked_dataset(
-        raw_root=args.raw_root,
-        prediction_root=args.prediction_root,
-        dataset_name="Dataset005_PelvicIPAPredInput",
-        train_samples=train_samples,
-        testing_samples=testing_samples,
-        image_source="Dataset001_Pelvic",
-        label_source="Dataset007_IPA",
-        variants=["Pred"],
-        channel_names={"0": "CT", "1": "noNorm"},
-    )
-    create_linked_dataset(
-        raw_root=args.raw_root,
-        prediction_root=args.prediction_root,
-        dataset_name="Dataset006_PelvicIPAMixedInput",
-        train_samples=train_samples,
-        testing_samples=testing_samples,
-        image_source="Dataset001_Pelvic",
-        label_source="Dataset007_IPA",
-        variants=["GT", "Pred"],
-        channel_names={"0": "CT", "1": "noNorm"},
-    )
+    # create_linked_dataset(
+    #     raw_root=args.raw_root,
+    #     prediction_root=args.prediction_root,
+    #     dataset_name="Dataset006_PelvicIPAMixedInput",
+    #     train_samples=train_samples,
+    #     testing_samples=testing_samples,
+    #     image_source="Dataset001_Pelvic",
+    #     label_source="Dataset007_IPA",
+    #     variants=["GT", "Pred"],
+    #     channel_names={"0": "CT", "1": "noNorm"},
+    # )
     print("Dataset creation completed.", flush=True)
 
 

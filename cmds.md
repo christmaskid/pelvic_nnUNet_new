@@ -12,7 +12,7 @@ nohup bash 04_test.sh 1 > logs/04_test.log & # gt_train_pred_test needs pred as 
 
 nohup bash 02_preprocess.sh 2 >> logs/02_preprocess.log &
 nohup bash 03_train.sh 2 >> logs/03_train.log &
-nohup bash 04_test.sh 2 > logs/04_test.log &
+nohup bash 04_test.sh 2 >> logs/04_test.log &
 
 ---
 nohup bash 03-1_preprocess-and-train_resenc.sh 1 > logs/03-1_preprocess-and-train_resenc.log &

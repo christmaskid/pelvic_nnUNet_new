@@ -65,7 +65,8 @@ if __name__=="__main__":
         class_names_list = ["IPA"]
     else:
         raise NotImplementedError("ground_truth_mode {} not implemented.".format(ground_truth_mode))
-    preds = sorted(glob(os.path.join(test_dir, "*.nii.gz")))
+    preds_all = sorted(glob(os.path.join(test_dir, "*.nii.gz")))
+    preds = [p for p in preds_all if os.path.basename(p)[:-len(".nii.gz")].split("_")[0] in assigned_test_ids]
     print(len(all_gts), len(preds), flush=True)
 
     postprocessing_mode = "none" 

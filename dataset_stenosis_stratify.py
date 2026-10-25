@@ -7,7 +7,7 @@ if __name__ == "__main__":
     input_csv = "/home/b09401064/pelvic_CTA/nnUNet_code/csv/dataset_stenosis_stratify_input.csv"
     train_csv = "/home/b09401064/pelvic_CTA/nnUNet_code/csv/train.csv"
     test_csv = "/home/b09401064/pelvic_CTA/nnUNet_code/csv/test.csv"
-    t_test_csv = "/home/b09401064/pelvic_CTA/nnUNet_code/csv/t_test_results.csv"
+    t_test_*csv = "/home/b09401064/pelvic_CTA/nnUNet_code/csv/t_test_results.csv"
     N_SPLIT = 5
     N_CANDIDATES = 100
 
